@@ -21,7 +21,7 @@ driver = webdriver.Chrome(service=service)
 #faro_link = driver.find_element('link text', 'Faro')
 #faro_link.click()
 
-driver.get('https://www.visitarportugal.pt/faro')
+driver.get('https://www.visitarportugal.pt/viana-castelo')
 time.sleep(5)
 
 #consent
@@ -36,7 +36,7 @@ concelhos_list = driver.find_element(By.CLASS_NAME, 'tagsb')
 list_concelhos = concelhos_list.find_elements(By.TAG_NAME, 'li')
 
 #save and print concelhos
-with open('concelhosFaro.txt', 'w') as f:
+with open('concelhosVianaCastelo.txt', 'w') as f:
     for concelhos in list_concelhos:
         f.write(concelhos.text + '\n')
         print(concelhos.text)
