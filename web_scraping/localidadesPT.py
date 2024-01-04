@@ -8,20 +8,9 @@ import time
 service = Service('/usr/local/bin/chromedriver')
 driver = webdriver.Chrome(service=service)
 
-#driver.get('https://www.visitarportugal.pt/')
-#time.sleep(5)
+print(driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0])
 
-#consent
-#button = driver.find_element(By.CSS_SELECTOR, 'button.fc-button.fc-cta-consent.fc-primary-button')
-#button.click()
-#time.sleep(5)
-
-
-# click on the district button
-#faro_link = driver.find_element('link text', 'Faro')
-#faro_link.click()
-
-driver.get('https://www.visitarportugal.pt/viana-castelo')
+driver.get('https://www.visitarportugal.pt/viseu')
 time.sleep(5)
 
 #consent
@@ -36,11 +25,10 @@ concelhos_list = driver.find_element(By.CLASS_NAME, 'tagsb')
 list_concelhos = concelhos_list.find_elements(By.TAG_NAME, 'li')
 
 #save and print concelhos
-with open('concelhosVianaCastelo.txt', 'w') as f:
+with open('concelhosViseu.txt', 'w') as f:
     for concelhos in list_concelhos:
         f.write(concelhos.text + '\n')
         print(concelhos.text)
-        
 #save concelhos list as variables to enter
 concelho_links = {}
 
@@ -63,7 +51,7 @@ for concelho_name, concelho_link in concelho_links.items():
 		localidades = localidades_list.find_elements(By.TAG_NAME, 'li')
 		localidades_names = [localidade.text for localidade in localidades] #you can replace localidade with any valid variable name. It's just a temporary variable that will take the value of each element in the localidades list during the list comprehension.
 		print(localidades_names)
-		
+
 
 		with open(f'{concelho_name}_localidades', 'w') as f:
 			for localidade in localidades:
