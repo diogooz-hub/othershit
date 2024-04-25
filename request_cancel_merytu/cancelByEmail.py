@@ -5,7 +5,7 @@ from requests.auth import HTTPBasicAuth
 import tkinter as tk
 
 #define endpoint
-url_post = "https://app.merytu.com/rest/nosecured/cancel"
+url_post = ""
 
 #get emails
 emailStr = ""
@@ -20,7 +20,7 @@ response_final_status = []
 for email in emailList:
     try:
         print(f"canceling: {email} now")
-        payload = {"email":email, "type":"cancel", "api":"7924079d-200a-49a6-8d76-106b1ca8afc0"}
+        payload = {}
         time.sleep(5)
         post_response = requests.post(url_post, json=payload)
         time.sleep(5)

@@ -10,7 +10,7 @@ driver = webdriver.Chrome(service=service)
 
 print(driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0])
 
-driver.get('https://www.visitarportugal.pt/viseu')
+driver.get('https://www.visitarportugal.pt/braga')
 time.sleep(5)
 
 #consent
@@ -25,7 +25,7 @@ concelhos_list = driver.find_element(By.CLASS_NAME, 'tagsb')
 list_concelhos = concelhos_list.find_elements(By.TAG_NAME, 'li')
 
 #save and print concelhos
-with open('concelhosViseu.txt', 'w') as f:
+with open('concelhosBraga.txt', 'w') as f:
     for concelhos in list_concelhos:
         f.write(concelhos.text + '\n')
         print(concelhos.text)
