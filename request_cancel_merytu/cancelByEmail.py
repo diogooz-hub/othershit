@@ -5,10 +5,10 @@ from requests.auth import HTTPBasicAuth
 import tkinter as tk
 
 #define endpoint
-url_post = ""
+url_post = " "
 
 #get emails
-emailStr = ""
+emailStr = " "
 
 #string to list
 emailList = emailStr.split(sep=",")
@@ -20,7 +20,7 @@ response_final_status = []
 for email in emailList:
     try:
         print(f"canceling: {email} now")
-        payload = {}
+        payload = {"email":email, "type":"cancel", "api":" "}
         time.sleep(5)
         post_response = requests.post(url_post, json=payload)
         time.sleep(5)
